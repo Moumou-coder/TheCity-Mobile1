@@ -1,13 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import SignInScreen from "./screen/SignInScreen";
+
+let content = <SignInScreen/>
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>That's my new app who's called TheCity </Text>
-      <StatusBar style="auto" />
-    </View>
+      <View style={styles.container}>
+        {content}
+      </View>
   );
 }
 
@@ -17,5 +19,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
