@@ -1,0 +1,12 @@
+1) Screen Connexion :
+    require input
+    text --> redirection screen
+    vérfication si juste ou pas (rouge ou vert)
+    pop-up pour notifier l'user qu'il est bien connecté + redirection
+
+
+2) Screen Inscription
+    require input
+    vérification rouge et vert
+    pop-up pour notifier l'user qu'il est bien enrigistré + redirection connexion
+    text redirecion

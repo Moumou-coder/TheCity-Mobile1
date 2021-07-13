@@ -1,0 +1,4 @@
+"The city" un gestionnaire d'activités dans la ville
+Mode visiteur --> continuer sans s'inscrire
+Ajouter l'option langue ( foncitonnalité supplémentaire )
+quand une activité est faite et est déplacé dans 'done', il faut l'enlever des favoris

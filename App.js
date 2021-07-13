@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import SignInScreen from "./screen/SignInScreen";
+import SignIn from "./screen/SignIn";
+import Register from "./screen/Register";
 
-let content = <SignInScreen/>
+// let content = <SignIn/>
+let content = <Register/>
 
 export default function App() {
   return (
