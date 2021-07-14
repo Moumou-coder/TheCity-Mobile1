@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, Text, Linking} from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
+
 
 
 const SignIn= props => {
 
     const [textPseudo, setTextPseudo] = useState('');
     const [textPass, setTextPass] = useState('');
+
+    const textEnterFirst = (firstInput) => {
+        setTextPseudo(firstInput)
+    }
 
     return (
         <View style={styles.screen}>
@@ -16,11 +21,11 @@ const SignIn= props => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    value={textPseudo}
                     placeholder="Pseudo"
                     mode={'outlined'}
                     selectionColor={'purple'}
-                    onChangeText={textPseudo => setTextPseudo(textPseudo)}
+                    value={textPseudo}
+                    onChangeText={textEnterFirst}
                     theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
                     TextColor={'red'}
                 />
@@ -41,11 +46,14 @@ const SignIn= props => {
                     Sign in
                 </Button>
             </View>
-            {/*<View style={styles.linkContainer}>*/}
-            {/*    <Text style={{color: '#0000cd'}} onPress={() => Linking.openURL('http://google.com')}>*/}
-            {/*        Register*/}
-            {/*    </Text>*/}
-            {/*</View>*/}
+            <View style={styles.linkContainer}>
+                <Text style={{color: '#0000cd'}}>
+                    Register
+                </Text>
+                <Text style={{color: '#b22222', marginTop: 5}}>
+                    Visitor Mode
+                </Text>
+            </View>
         </View>
     );
 }
@@ -55,9 +63,6 @@ const styles = StyleSheet.create({
         padding: 20,
         alignItems: 'center',
         flex: 1,
-    },
-    title: {
-
     },
     inputContainer :{
         padding : 2,
@@ -79,9 +84,10 @@ const styles = StyleSheet.create({
         height: null,
         resizeMode:'contain'
     },
-    // linkContainer: {
-    //     marginTop : 20,
-    // }
+    linkContainer: {
+        marginTop: 15,
+        alignItems: 'center'
+    }
 });
 
 export default SignIn;

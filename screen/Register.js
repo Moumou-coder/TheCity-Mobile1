@@ -50,6 +50,14 @@ const Register = props => {
                     Register
                 </Button>
             </View>
+            <View style={styles.linkContainer}>
+                <Text style={{color: '#0000cd'}}>
+                    Sign in
+                </Text>
+                <Text style={{color: '#b22222', marginTop: 5}}>
+                    Visitor Mode
+                </Text>
+            </View>
         </View>
     );
 };
@@ -76,6 +84,10 @@ const styles = StyleSheet.create({
         height: 50,
         textAlign: 'left',
         margin:10,
+    },
+    linkContainer: {
+        marginTop: 30,
+        alignItems: 'center'
     }
 });
 

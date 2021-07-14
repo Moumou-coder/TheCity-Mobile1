@@ -3,9 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import SignIn from "./screen/SignIn";
 import Register from "./screen/Register";
+import Home from "./screen/Home";
 
 // let content = <SignIn/>
-let content = <Register/>
+// let content = <Register/>
+let content = <Home/>
 
 export default function App() {
   return (
