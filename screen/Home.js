@@ -4,18 +4,20 @@ import { Button } from "react-native-paper";
 
 const Home = props => {
 
+    const [nbrActivities, setNbrActivities] = useState('0');
+
     return(
         <View style={styles.screen}>
-            <Text>I ❤ Brussels</Text>
-            <Text>Activités : n</Text>
-            <View>
+            <Text style={styles.titleText}>I ❤ Brussels</Text>
+            <Text>Activities : {nbrActivities}</Text>
+            <View style={styles.icon}>
                 <Text>ce sera un icone qui pourra etre deseable</Text>
             </View>
             <View style={styles.btnContainer}>
                 <Button style={styles.btn} uppercase={false} mode="contained" color={'blue'} >
                     Public
                 </Button>
-                <Button  style={styles.btn}  uppercase={false} mode="contained" color={'red'} >
+                <Button  style={styles.btn}  uppercase={false} mode="contained" color={'green'} >
                     Private
                 </Button>
             </View>
@@ -29,12 +31,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
+    titleText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginTop: 5,
+        marginBottom : 10
+    },
+    icon: {
+        marginTop: 10,
+    },
     btnContainer: {
         flexDirection: 'row',
-        marginTop:10
+        marginTop:10,
+        width: '100%',
+        borderColor: 'black',
+        borderBottomWidth : 2,
+        borderTopWidth : 2,
     },
     btn: {
-        width:150,
+        width: '50%',
         margin:1
     }
 });
