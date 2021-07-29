@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button, Card, Title } from 'react-native-paper';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Button, Card, Title} from 'react-native-paper';
 
 const HomeScreen = props => {
 
-    const [nbrActivities, setNbrActivities] = useState('0');
-
     return(
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <View style={styles.firstContainer}>
                 <Text style={styles.titleText}>I ❤ Brussels</Text>
                 <Text>Weather : </Text>
@@ -27,26 +25,8 @@ const HomeScreen = props => {
                         <Title>Card title</Title>
                     </Card.Content>
                 </Card>
-                <Card style={styles.card}>
-                    <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/500' }} />
-                    <Card.Content style={styles.TitleContainer}>
-                        <Title>Card title</Title>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.card}>
-                    <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/500' }} />
-                    <Card.Content style={styles.TitleContainer}>
-                        <Title>Card title</Title>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.card}>
-                    <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/800' }} />
-                    <Card.Content style={styles.TitleContainer}>
-                        <Title>Card title</Title>
-                    </Card.Content>
-                </Card>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
