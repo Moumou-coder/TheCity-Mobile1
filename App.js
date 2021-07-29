@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import SignIn from "./screen/SignIn";
-import Register from "./screen/Register";
-import Home from "./screen/Home";
+import SignInScreen from "./screen/SignInScreen";
+import RegisterScreen from "./screen/RegisterScreen";
+import HomeScreen from "./screen/HomeScreen";
 
-// let content = <SignIn/>
-// let content = <Register/>
-let content = <Home/>
+// let content = <SignInScreen/>
+// let content = <RegisterScreen/>
+let content = <HomeScreen/>
 
 export default function App() {
   return (

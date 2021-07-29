@@ -1,3 +1,5 @@
+regarder la vidéo 112 pour le design fonts 
+
 1) Screen Connexion :
     require input
     text --> redirection screen
@@ -10,3 +12,12 @@
     vérification rouge et vert
     pop-up pour notifier l'user qu'il est bien enrigistré + redirection connexion
     text redirecion
+
+3) redimensions (gsm / tablette ) avec redimensions react native
+
+4) react navigation : 115 --> very important ou plutot voir directement sur react navigation 5x
+
+5) Installer useScreen + l'ajouter sur app 126.
+
+6) attention pour le bouton favoris : 132.
+

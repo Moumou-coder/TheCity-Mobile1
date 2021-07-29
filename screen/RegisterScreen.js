@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
-import { TextInput, Button} from 'react-native-paper';
+import {View, Text, StyleSheet} from 'react-native';
+import {Button, TextInput} from "react-native-paper";
 
 
-
-const SignIn= props => {
+const RegisterScreen = props => {
 
     const [textPseudo, setTextPseudo] = useState('');
+    const [textEmail, setTextEmail] = useState('');
     const [textPass, setTextPass] = useState('');
-
-    const textEnterFirst = (firstInput) => {
-        setTextPseudo(firstInput)
-    }
 
     return (
         <View style={styles.screen}>
-            <View style={styles.logoContainer}>
-                <Image source={require('../assets/logo/logo.png')} style={styles.logo} />
-            </View>
+            <Text style={styles.titleText}> Register Your Profil </Text>
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
+                    value={textPseudo}
                     placeholder="Pseudo"
                     mode={'outlined'}
                     selectionColor={'purple'}
-                    value={textPseudo}
-                    onChangeText={textEnterFirst}
+                    onChangeText={textPseudo => setTextPseudo(textPseudo)}
+                    theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
+                    TextColor={'red'}
+                />
+                <TextInput
+                    style={styles.input}
+                    value={textEmail}
+                    placeholder="Email"
+                    mode={'outlined'}
+                    selectionColor={'purple'}
+                    onChangeText={textEmail => setTextEmail(textEmail)}
                     theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
                     TextColor={'red'}
                 />
@@ -42,13 +46,13 @@ const SignIn= props => {
                 />
             </View>
             <View>
-                <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={() => console.log('Pressed') }>
-                    Sign in
+                <Button  uppercase={false} mode="contained" color={'#ffd700'}  onPress={() => console.log('Pressed RegisterScreen') }>
+                    Register
                 </Button>
             </View>
             <View style={styles.linkContainer}>
                 <Text style={{color: '#0000cd'}}>
-                    Register
+                    Sign in
                 </Text>
                 <Text style={{color: '#b22222', marginTop: 5}}>
                     Visitor Mode
@@ -56,17 +60,24 @@ const SignIn= props => {
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
         alignItems: 'center',
         flex: 1,
+        justifyContent:'center'
+    },
+    titleText: {
+        fontSize: 20,
+        fontStyle: 'italic',
+        fontWeight: 'bold'
     },
     inputContainer :{
         padding : 2,
         marginBottom :20,
+        marginTop : 50
     },
     input: {
         width: 200,
@@ -74,20 +85,10 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         margin:10,
     },
-    logoContainer: {
-        width: 300,
-        height: 300
-    },
-    logo: {
-        flex:1,
-        width: null,
-        height: null,
-        resizeMode:'contain'
-    },
     linkContainer: {
-        marginTop: 15,
+        marginTop: 30,
         alignItems: 'center'
     }
 });
 
-export default SignIn;
+export default RegisterScreen;
