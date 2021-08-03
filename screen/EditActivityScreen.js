@@ -1,44 +1,33 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView} from 'react-native';
-import { Button } from 'react-native-paper';
+import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {Button} from "react-native-paper";
 
-const DetailsActivityScreen = props => {
+const EditActivityScreen = props => {
 
     return(
         <View style={styles.screen}>
             <Text> il y aura un header avec redux et 2 icons </Text>
             <View style={styles.imgContainer}>
-                <Image source={require('../assets/images/Atomium.jpg')} style={styles.img} resizeMode={"stretch"}  />
+                <Image source={require('../assets/images/picsadd.png')} style={styles.img} resizeMode={"stretch"}  />
             </View>
             <View style={styles.descriptionContainer}>
                 <ScrollView>
-                    <Text>Ceci est le centre de Bruxelles, un des monuments les plus famous de notre belle petite ville qui la capitale de l'europe </Text>
+                    <Text> ceic sera transformé en input text</Text>
                 </ScrollView>
             </View>
             <View style={styles.hoursContainer}>
                 <ScrollView>
-                    <Text>
-                        lundi: 10h-20h {"\n"}
-                        mardi : 10h-20h {"\n"}
-                        mercredi : 10h-20h {"\n"}
-                        jeudi : 10h-20h {"\n"}
-                        Vendredi : Fermé {"\n"}
-                        Samedi : 10h-22h {"\n"}
-                        Dimanche : Fermé {"\n"}
-                    </Text>
+                    <Text> ceic sera transformé en input text</Text>
                 </ScrollView>
             </View>
             <View style={styles.infosContainer}>
                 <ScrollView>
-                    <Text>
-                        Lieu payant {"\n"}
-                        du au covid, veuillez appeler 24h à l'avance pour réserver votre journée, merci
-                    </Text>
+                    <Text> ceic sera transformé en input text</Text>
                 </ScrollView>
             </View>
             <View style={styles.btnContainer}>
-                <Button uppercase={true} mode="contained" color={'#ffd700'} onPress={() => console.log('modifier')}> Edit </Button>
-                <Button uppercase={true} mode="contained" color={'#b22222'} onPress={() => console.log('supprimer')}> Delete </Button>
+                <Button uppercase={false} mode="contained" color={'#ffd700'} onPress={() => console.log('modifier')}> Save </Button>
+                <Button uppercase={false} mode="contained" color={'#b22222'} onPress={() => console.log('supprimer')}> Cancel </Button>
             </View>
         </View>
     );
@@ -97,4 +86,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default DetailsActivityScreen;
+export default EditActivityScreen;
