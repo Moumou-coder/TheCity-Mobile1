@@ -7,12 +7,15 @@ import HomeScreen from "./screen/HomeScreen";
 import DetailsActivityScreen from "./screen/DetailsActivityScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import EditActivityScreen from "./screen/EditActivityScreen";
+import SettingScreen from "./screen/SettingScreen";
 
-// let content = <SignInScreen/>
+let content = <SignInScreen/>
 // let content = <RegisterScreen/>
 // let content = <HomeScreen/>
-let content = <DetailsActivityScreen />
+// let content = <DetailsActivityScreen />
 // let content = <EditActivityScreen/>
+// let content = <ProfileScreen/>
+// let content = <SettingScreen />
 
 export default function App() {
   return (
