@@ -27,3 +27,5 @@ regarder la vidéo 112 pour le design fonts
 
 9) mettre tous les bouttons à la meme taille si j'ai le temps
 
+10) User Input handler + ajouter scrollview pour homescreen et multilines
+

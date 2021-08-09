@@ -1,8 +1,37 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Alert } from 'react-native';
 import { Button } from 'react-native-paper';
 
 const SettingScreen = props => {
+
+    const alertDeleteButton = () =>
+        Alert.alert(
+            "Do you really want to delete your account ?",
+            "😥",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "YES", onPress: () => console.log("OK Pressed") }
+            ]
+        );
+
+    const alertLogOutButton = () =>
+        Alert.alert(
+            "Are you sure that you want to log out? ",
+            "",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "YES", onPress: () => console.log("OK Pressed") }
+            ]
+        );
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.viewContainers}>
@@ -19,8 +48,8 @@ const SettingScreen = props => {
                 </View>
             </View>
             <View style={styles.btnContainer}>
-                <Button mode={'contained'} onPress={() => console.log('se déconnecter')} color={'#ffa500'}> Log Out </Button>
-                <Button mode={'contained'} onPress={() => console.log('suppirmer account')} color={'#ff0000'}> Delete Account </Button>
+                <Button mode={'contained'} onPress={alertLogOutButton} color={'#ffa500'}> Log Out </Button>
+                <Button mode={'contained'} onPress={alertDeleteButton } color={'#ff0000'}> Delete Account </Button>
             </View>
             <View style={styles.copyContainer}>
                 <Text style={styles.copy}> TheCity © 2021 version 0.1</Text>
