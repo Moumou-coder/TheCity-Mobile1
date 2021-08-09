@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Alert } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Alert, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
 
 const SettingScreen = props => {
@@ -33,38 +33,38 @@ const SettingScreen = props => {
         );
 
     return(
-        <SafeAreaView style={styles.container}>
-            <View style={styles.viewContainers}>
-                <View style={styles.textContainers}>
-                    <Text>PSEUDO : "pseudo" </Text>
-                </View>
-                <View style={styles.textContainers}>
-                    <Text>NOTIFICATIONS :</Text>
-                    <Text>button</Text>
-                </View>
-                <View style={styles.textContainers}>
-                    <Text>DARK THEME :</Text>
-                    <Text>button</Text>
-                </View>
-            </View>
-            <View style={styles.btnContainer}>
-                <Button mode={'contained'} onPress={alertLogOutButton} color={'#ffa500'}> Log Out </Button>
-                <Button mode={'contained'} onPress={alertDeleteButton } color={'#ff0000'}> Delete Account </Button>
-            </View>
-            <View style={styles.copyContainer}>
-                <Text style={styles.copy}> TheCity © 2021 version 0.1</Text>
-            </View>
-        </SafeAreaView>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <SafeAreaView style={styles.container}>
+                    <View style={styles.viewContainers}>
+                        <View style={styles.textContainers}>
+                            <Text>PSEUDO : "pseudo" </Text>
+                        </View>
+                        <View style={styles.textContainers}>
+                            <Text>NOTIFICATIONS :</Text>
+                            <Text>button</Text>
+                        </View>
+                        <View style={styles.textContainers}>
+                            <Text>DARK THEME :</Text>
+                            <Text>button</Text>
+                        </View>
+                    </View>
+                    <View style={styles.btnContainer}>
+                        <Button mode={'contained'} onPress={alertLogOutButton} color={'#ffa500'}> Log Out </Button>
+                        <Button mode={'contained'} onPress={alertDeleteButton } color={'#ff0000'}> Delete Account </Button>
+                    </View>
+                    <View style={styles.copyContainer}>
+                        <Text style={styles.copy}> TheCity © 2021 version 0.1</Text>
+                    </View>
+                </SafeAreaView>
+            </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignContent : 'center',
-        margin: 20,
-        justifyContent: 'space-evenly'
-
+        marginTop: 50,
+        marginBottom: 10
     },
     viewContainers: {
         width: '100%',

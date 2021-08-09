@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Image, ScrollView, Platform} from 'react-native';
+import {View, StyleSheet, Image, ScrollView, Platform, KeyboardAvoidingView} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
 import * as ImagePicker from 'expo-image-picker';
 
@@ -50,10 +50,11 @@ const EditActivityScreen = props => {
         setEditInfos(textIInput)
     }
 
-        return (
-            <View style={styles.screen}>
-                <View style={styles.containersT}>
-                    <ScrollView>
+    return (
+        <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={50} >
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.screen}>
+                    <View style={styles.containersT}>
                         <TextInput
                             style={styles.title}
                             placeholder="Title of the activity"
@@ -63,16 +64,15 @@ const EditActivityScreen = props => {
                             onChangeText={titleEnter}
                             theme={{colors: {primary: '#00008b', underlineColor: 'transparent'}}}
                         />
-                    </ScrollView>
-                </View>
-                <View style={styles.imgContainer}>
-                    <Button onPress={pickImage}> Add Image </Button>
-                    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-                </View>
-                <View style={styles.containers}>
-                    <ScrollView>
+                    </View>
+                    <View style={styles.imgContainer}>
+                        <Button onPress={pickImage}> Add Image </Button>
+                        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                    </View>
+                    <View style={styles.containers}>
                         <TextInput
                             style={styles.input}
+                            multiline={true}
                             placeholder="Description"
                             mode={'flat'}
                             selectionColor={'black'}
@@ -80,12 +80,11 @@ const EditActivityScreen = props => {
                             onChangeText={descriptionEnter}
                             theme={{colors: {primary: '#00008b', underlineColor: 'transparent'}}}
                         />
-                    </ScrollView>
-                </View>
-                <View style={styles.containers}>
-                    <ScrollView>
+                    </View>
+                    <View style={styles.containers}>
                         <TextInput
                             style={styles.input}
+                            multiline={true}
                             placeholder="Hours"
                             mode={'flat'}
                             selectionColor={'black'}
@@ -93,12 +92,11 @@ const EditActivityScreen = props => {
                             onChangeText={hoursEnter}
                             theme={{colors: {primary: '#00008b', underlineColor: 'transparent'}}}
                         />
-                    </ScrollView>
-                </View>
-                <View style={styles.containers}>
-                    <ScrollView>
+                    </View>
+                    <View style={styles.containers}>
                         <TextInput
                             style={styles.input}
+                            multiline={true}
                             placeholder="More Informations"
                             mode={'flat'}
                             selectionColor={'black'}
@@ -106,23 +104,23 @@ const EditActivityScreen = props => {
                             onChangeText={infosEnter}
                             theme={{colors: {primary: '#00008b', underlineColor: 'transparent'}}}
                         />
-                    </ScrollView>
+                    </View>
+                    <View style={styles.btnContainer}>
+                        <Button uppercase={false} mode="contained" color={'#ffd700'}
+                                onPress={() => console.log('modifier')}> Save </Button>
+                        <Button uppercase={false} mode="contained" color={'#b22222'}
+                                onPress={() => console.log('supprimer')}> Cancel </Button>
+                    </View>
                 </View>
-                <View style={styles.btnContainer}>
-                    <Button uppercase={false} mode="contained" color={'#ffd700'}
-                            onPress={() => console.log('modifier')}> Save </Button>
-                    <Button uppercase={false} mode="contained" color={'#b22222'}
-                            onPress={() => console.log('supprimer')}> Cancel </Button>
-                </View>
-            </View>
-        );
+            </ScrollView>
+        </KeyboardAvoidingView>
+    );
 };
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1,
+        // flex: 1,
         alignItems : 'center',
-        // justifyContent: 'space-evenly'
     },
     containersT: {
         width: 300,
@@ -145,13 +143,10 @@ const styles = StyleSheet.create({
     },
     containers: {
         width: 300,
-        height : 80,
-        overflow: 'hidden',
         marginTop : 5
     },
     input: {
         width: 300,
-        height : 70,
     },
     btnContainer: {
         flexDirection: 'row',
