@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
         margin: 35,
         height: 120,
         justifyContent: 'space-around'
+
     },
     copyContainer: {
         alignItems: 'center',

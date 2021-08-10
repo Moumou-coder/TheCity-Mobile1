@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, Text, KeyboardAvoidingView, ScrollView} from 'react-native';
+import { View, StyleSheet, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
 
 
@@ -11,6 +11,13 @@ const SignInScreen= props => {
 
     const textEnterFirst = (firstInput) => {
         setTextPseudo(firstInput)
+    }
+
+    const registerRedirection = () => {
+        props.navigation.navigate('Register')
+    }
+    const modeVisitorRedirection = () => {
+        props.navigation.navigate('Home')
     }
 
     return (
@@ -51,10 +58,10 @@ const SignInScreen= props => {
                         </Button>
                     </View>
                     <View style={styles.linkContainer}>
-                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={() => console.log('register man !')}>
+                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={() => registerRedirection()}>
                             Register
                         </Button>
-                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={() => console.log('no man !')}>
+                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={() => modeVisitorRedirection()}>
                             Visitor Mode
                         </Button>
                     </View>

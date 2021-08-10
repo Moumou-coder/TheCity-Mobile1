@@ -9,6 +9,13 @@ const RegisterScreen = props => {
     const [textEmail, setTextEmail] = useState('');
     const [textPass, setTextPass] = useState('');
 
+    const modeVisitorRedirection = () => {
+        props.navigation.navigate('Home')
+    }
+    const signInRedirection = () => {
+        props.navigation.navigate('SignIn')
+    }
+
     return (
         <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={50} >
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -53,12 +60,12 @@ const RegisterScreen = props => {
                         </Button>
                     </View>
                     <View style={styles.linkContainer}>
-                        <Text style={{color: '#0000cd'}}>
-                            Sign in
-                        </Text>
-                        <Text style={{color: '#b22222', marginTop: 10}}>
+                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={() => signInRedirection()} >
+                            Sign In
+                        </Button>
+                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={() => modeVisitorRedirection()} >
                             Visitor Mode
-                        </Text>
+                        </Button>
                     </View>
                 </View>
             </ScrollView>
@@ -68,7 +75,7 @@ const RegisterScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'Register',
+        headerShown: false
     };
 };
 
@@ -76,8 +83,8 @@ const styles = StyleSheet.create({
     screen: {
         padding: 20,
         alignItems: 'center',
-        // flex: 1,
-        justifyContent:'center'
+        justifyContent:'center',
+        marginTop: 50
     },
     titleText: {
         fontSize: 20,

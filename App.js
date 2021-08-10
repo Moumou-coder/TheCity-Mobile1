@@ -10,6 +10,7 @@ import DetailsActivityScreen from "./screen/DetailsActivityScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import EditActivityScreen from "./screen/EditActivityScreen";
 import SettingScreen from "./screen/SettingScreen";
+import {ActivityNavigator, TabNavigator} from "./navigations/TheCityNavigator";
 
 // let content = <SignInScreen/>
 // let content = <RegisterScreen/>
@@ -30,7 +31,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    // justifyContent: 'center',
   }
 });

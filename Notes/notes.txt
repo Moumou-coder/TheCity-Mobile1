@@ -8,3 +8,7 @@ Foncionnalités supplémentaies :
 * Ajouter l'option langue
 * Filtres 
 * page loading lors du lancement de l'app avec le logo et du texte commme : gestionnaire d'activités dans Bruxelles, idées pour plus de fun, 
+
+
+
+- elevationd dans le stylesheet, c'est pour android ! (shadowOpacity = ios)

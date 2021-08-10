@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { Button, Card, Title} from 'react-native-paper';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const HomeScreen = props => {
-
     return(
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <SafeAreaView style={styles.screen}>
-                    <View style={styles.firstContainer}>
-                        <Text style={styles.titleText}>I ❤ Brussels</Text>
-                        <Text>Weather : </Text>
-                    </View>
-                    <View style={styles.btnContainer}>
-                        <Button style={styles.btn} uppercase={true} mode="contained" color={'blue'} >
-                            Public
-                        </Button>
-                        <Button  style={styles.btn}  uppercase={true} mode="contained" color={'green'} >
-                            Private
-                        </Button>
-                    </View>
-                    <View style={styles.cardContainer}>
-                        <Card style={styles.card}>
-                            <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/600' }} />
-                            <Card.Content style={styles.TitleContainer}>
-                                <Title>Card title</Title>
-                            </Card.Content>
-                        </Card>
-                        <Card style={styles.card}>
-                            <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/600' }} />
-                            <Card.Content style={styles.TitleContainer}>
-                                <Title>Card title</Title>
-                            </Card.Content>
-                        </Card>
-                    </View>
-                </SafeAreaView>
-            </ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <SafeAreaView style={styles.screen}>
+                <View style={styles.firstContainer}>
+                    <Text style={styles.titleText}>I ❤ Brussels</Text>
+                    <Text>Weather : </Text>
+                </View>
+                <View style={styles.btnContainer}>
+                    <Button style={styles.btn} uppercase={true} mode="contained" color={'blue'} >
+                        Public
+                    </Button>
+                    <Button  style={styles.btn}  uppercase={true} mode="contained" color={'green'} >
+                        Private
+                    </Button>
+                </View>
+                <View style={styles.cardContainer}>
+                    <Card style={styles.card}>
+                        <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/600' }} />
+                        <Card.Content style={styles.TitleContainer}>
+                            <Title>Card title</Title>
+                        </Card.Content>
+                    </Card>
+                    <Card style={styles.card}>
+                        <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/600' }} />
+                        <Card.Content style={styles.TitleContainer}>
+                            <Title>Card title</Title>
+                        </Card.Content>
+                    </Card>
+                </View>
+            </SafeAreaView>
+        </ScrollView>
     );
 };
 
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     TitleContainer: {
         alignItems: 'center'
-    }
+    },
 });
 
 export default HomeScreen;

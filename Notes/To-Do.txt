@@ -4,14 +4,13 @@ regarder la vidéo 112 pour le design fonts
     require input
     text --> redirection screen
     vérfication si juste ou pas (rouge ou vert)
-    pop-up pour notifier l'user qu'il est bien connecté + redirection
+    pop-up pour notifier l'user qu'il est bien connecté
 
 
 2) Screen Inscription
     require input
     vérification rouge et vert
     pop-up pour notifier l'user qu'il est bien enrigistré + redirection connexion
-    text redirecion
 
 3) redimensions (gsm / tablette ) avec redimensions react native
 
@@ -21,13 +20,7 @@ regarder la vidéo 112 pour le design fonts
 
 6) attention pour le bouton favoris : 132.
 
-7) Barre de navigation 
-
-8) Design de base de tous les screen
-
-9) mettre tous les bouttons à la meme taille si j'ai le temps
-
-10) User Input handler + ajouter scrollview pour homescreen et multilines
+7) Barre de navigation
 
 11) UI/UX : 
 rajouter un bouton back sur le côté gauche 
@@ -37,4 +30,7 @@ ajouter des errors messages real time pour les user input avec alert après subm
 mettre des icones utiles pour aider les utilisateurs 
 ajouter une barre de navigations bottom pour switch entre les écrans ( ex: insta )
 
+12) Navigation :
+--> passer en paramètre un id pour pour voir l'activitydetailsscreen
+--> authentification + navigation
 
