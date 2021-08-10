@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, Text, KeyboardAvoidingView, ScrollView, Platform} from 'react-native';
+import { View, StyleSheet, Image, Text, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
 
 
@@ -47,16 +47,16 @@ const SignInScreen= props => {
                     </View>
                     <View>
                         <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={() => console.log('Pressed') }>
-                            Sign in
+                            Sign In
                         </Button>
                     </View>
                     <View style={styles.linkContainer}>
-                        <Text style={{color: '#0000cd'}}>
+                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={() => console.log('register man !')}>
                             Register
-                        </Text>
-                        <Text style={{color: '#b22222', marginTop: 5}}>
+                        </Button>
+                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={() => console.log('no man !')}>
                             Visitor Mode
-                        </Text>
+                        </Button>
                     </View>
                 </View>
             </ScrollView>
@@ -64,11 +64,15 @@ const SignInScreen= props => {
     );
 }
 
+export const screenOptions = nav => {
+    return {
+        headerShown: false
+    };
+};
+
 const styles = StyleSheet.create({
     screen: {
-        padding: 20,
         alignItems: 'center',
-        margin : 20
     },
     inputContainer :{
         padding : 2,

@@ -41,7 +41,7 @@ const HomeScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'catalog of activities',
+        headerTitle: 'Catalog of activities',
     };
 };
 

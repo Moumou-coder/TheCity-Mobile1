@@ -32,6 +32,12 @@ const ProfileScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'Profile',
+    };
+};
+
 const styles = StyleSheet.create({
     screen : {
         flex : 1,

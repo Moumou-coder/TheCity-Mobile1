@@ -5,9 +5,13 @@ import HomeScreen, {screenOptions as homeScreenOptions} from "../screen/HomeScre
 import SettingScreen, {screenOptions as settingsScreenOptions} from "../screen/SettingScreen";
 import DetailsActivityScreen, {screenOptions as detailsActivityScreenOptions } from "../screen/DetailsActivityScreen";
 import EditActivityScreen, {screenOptions as editActivityScreenOptions} from "../screen/EditActivityScreen";
+import SignInScreen, {screenOptions as SingInScreenOptions} from "../screen/SignInScreen";
+import RegisterScreen, {screenOptions as RegisterScreenOptions}from "../screen/RegisterScreen";
+import ProfileScreen, {screenOptions as ProfileScreenOptions} from "../screen/ProfileScreen";
 
 const defaultNavigationOptions = {
-    headerTitleStyle: { alignSelf: 'center' },
+    headerStyle: {height: 65},
+    headerTitleStyle: { alignSelf: 'center'},
 }
 
 const ActivityStackNavigator = createStackNavigator();
@@ -43,6 +47,29 @@ export const SettingNavigator = () => {
                 options={settingsScreenOptions}
             />
         </SettingStackNavigator.Navigator>
+    );
+}
+
+const AuthStackNavigator = createStackNavigator();
+export const AuthNavigator = () => {
+    return(
+        <AuthStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+            <AuthStackNavigator.Screen
+                name={"SignIn"}
+                component={SignInScreen}
+                options={SingInScreenOptions}
+            />
+            <AuthStackNavigator.Screen
+                name={"Register"}
+                component={RegisterScreen}
+                options={RegisterScreenOptions}
+            />
+            <AuthStackNavigator.Screen
+                name={"Profile"}
+                component={ProfileScreen}
+                options={ProfileScreenOptions}
+            />
+        </AuthStackNavigator.Navigator>
     );
 }
 

@@ -66,6 +66,12 @@ const RegisterScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'Register',
+    };
+};
+
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
