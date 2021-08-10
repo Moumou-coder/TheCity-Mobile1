@@ -60,6 +60,12 @@ const SettingScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'Settings',
+    };
+};
+
 const styles = StyleSheet.create({
     container: {
         alignContent : 'center',

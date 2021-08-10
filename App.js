@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
+
+import AppNavigator from "./navigations/AppNavigator";
 
 import SignInScreen from "./screen/SignInScreen";
 import RegisterScreen from "./screen/RegisterScreen";
@@ -9,7 +11,7 @@ import ProfileScreen from "./screen/ProfileScreen";
 import EditActivityScreen from "./screen/EditActivityScreen";
 import SettingScreen from "./screen/SettingScreen";
 
-let content = <SignInScreen/>
+// let content = <SignInScreen/>
 // let content = <RegisterScreen/>
 // let content = <HomeScreen/>
 // let content = <DetailsActivityScreen />
@@ -19,9 +21,9 @@ let content = <SignInScreen/>
 
 export default function App() {
   return (
-      <View style={styles.container}>
-        {content}
-      </View>
+      <SafeAreaView style={styles.container}>
+        <AppNavigator />
+      </SafeAreaView>
   );
 }
 
@@ -29,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   }
 });

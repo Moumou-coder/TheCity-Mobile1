@@ -29,3 +29,12 @@ regarder la vidéo 112 pour le design fonts
 
 10) User Input handler + ajouter scrollview pour homescreen et multilines
 
+11) UI/UX : 
+rajouter un bouton back sur le côté gauche 
+Sign In et Register --> OK
+clavier ne va pas sur le input 
+ajouter des errors messages real time pour les user input avec alert après submit 
+mettre des icones utiles pour aider les utilisateurs 
+ajouter une barre de navigations bottom pour switch entre les écrans ( ex: insta )
+
+

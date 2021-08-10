@@ -117,6 +117,12 @@ const EditActivityScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'Editing or Adding Activity',
+    };
+};
+
 const styles = StyleSheet.create({
     screen: {
         // flex: 1,
@@ -143,7 +149,7 @@ const styles = StyleSheet.create({
     },
     containers: {
         width: 300,
-        marginTop : 5
+        marginTop : 15,
     },
     input: {
         width: 300,

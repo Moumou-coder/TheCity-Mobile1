@@ -39,6 +39,12 @@ const HomeScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'catalog of activities',
+    };
+};
+
 const styles = StyleSheet.create({
     screen: {
         padding: 20,

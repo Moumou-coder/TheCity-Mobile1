@@ -14,7 +14,7 @@ const SignInScreen= props => {
     }
 
     return (
-        <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={50} >
+        <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={30} >
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.screen}>
                     <View style={styles.logoContainer}>
@@ -30,6 +30,7 @@ const SignInScreen= props => {
                             onChangeText={textEnterFirst}
                             theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
                             TextColor={'red'}
+                            required
                         />
                         <TextInput
                             style={styles.input}
@@ -41,6 +42,7 @@ const SignInScreen= props => {
                             outlineColor={'black'}
                             onChangeText={textPass => setTextPass(textPass)}
                             theme={{ colors: { primary: '#000000',underlineColor:'transparent',}}}
+                            required
                         />
                     </View>
                     <View>
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
         padding: 20,
         alignItems: 'center',
         margin : 20
-        // flex: 1,
     },
     inputContainer :{
         padding : 2,

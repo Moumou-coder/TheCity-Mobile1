@@ -38,6 +38,12 @@ const DetailsActivityScreen = props => {
     );
 };
 
+export const screenOptions = nav => {
+    return {
+        headerTitle: 'My Activity',
+    };
+};
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
