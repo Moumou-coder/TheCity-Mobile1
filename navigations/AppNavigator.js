@@ -6,7 +6,7 @@ const AppNavigator = props =>  {
 
     return(
         <NavigationContainer>
-            <TabNavigator />
+            <AuthNavigator />
         </NavigationContainer>
     );
 };

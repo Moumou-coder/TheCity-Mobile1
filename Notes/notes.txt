@@ -12,3 +12,5 @@ Foncionnalités supplémentaies :
 
 
 - elevationd dans le stylesheet, c'est pour android ! (shadowOpacity = ios)
+
+si problème lancement application : node - reactnative -libraries - core - timer - max : 60*1000

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {View, Text, StyleSheet, KeyboardAvoidingView, ScrollView,} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
-
+import {dbh} from "../config/config";
+import {auth} from "../config/config";
 
 const RegisterScreen = props => {
 
@@ -14,6 +15,16 @@ const RegisterScreen = props => {
     }
     const signInRedirection = () => {
         props.navigation.navigate('SignIn')
+    }
+
+    const submitForm= () => {
+        auth.createUserWithEmailAndPassword(textEmail,textPass)
+            .then((userCredential) => {
+                dbh.collection("Users").doc(userCredential.user.email).set({pseudo: textPseudo})
+                signInRedirection();
+            }).catch((error)=>{console.log("cette email existe déjà")})
+
+
     }
 
     return (
@@ -55,15 +66,15 @@ const RegisterScreen = props => {
                         />
                     </View>
                     <View>
-                        <Button  uppercase={false} mode="contained" color={'#ffd700'}  onPress={() => console.log('Pressed RegisterScreen') }>
+                        <Button  uppercase={false} mode="contained" color={'#ffd700'}  onPress={submitForm}>
                             Register
                         </Button>
                     </View>
                     <View style={styles.linkContainer}>
-                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={() => signInRedirection()} >
+                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={signInRedirection} >
                             Sign In
                         </Button>
-                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={() => modeVisitorRedirection()} >
+                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={modeVisitorRedirection} >
                             Visitor Mode
                         </Button>
                     </View>

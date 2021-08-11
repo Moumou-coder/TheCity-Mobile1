@@ -34,3 +34,7 @@ ajouter une barre de navigations bottom pour switch entre les écrans ( ex: inst
 --> passer en paramètre un id pour pour voir l'activitydetailsscreen
 --> authentification + navigation
 
+13) créer le componenent : input et card
+
+14) rajouter dans register après le then (2ieme) un snackbar pour prévenir user
+

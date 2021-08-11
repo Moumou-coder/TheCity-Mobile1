@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
+import {dbh} from "../config/config";
+import firebase from "firebase";
+import {auth} from "../config/config";
 
 
 
 const SignInScreen= props => {
 
-    const [textPseudo, setTextPseudo] = useState('');
+    const [textMail, setTextMail] = useState('');
     const [textPass, setTextPass] = useState('');
-
-    const textEnterFirst = (firstInput) => {
-        setTextPseudo(firstInput)
-    }
 
     const registerRedirection = () => {
         props.navigation.navigate('Register')
@@ -19,6 +18,17 @@ const SignInScreen= props => {
     const modeVisitorRedirection = () => {
         props.navigation.navigate('Home')
     }
+    const verificationSubmit = () => {
+        auth.signInWithEmailAndPassword(textMail.toString().trim(), textPass.toString().trim())
+            .then((userCredential) => {
+                console.log( textMail, textPass)
+
+                // var user = userCredential.user; utiliser avec redux
+                modeVisitorRedirection();
+            })
+            .catch((error) => {console.log(error)});
+    }
+
 
     return (
         <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={30} >
@@ -33,8 +43,8 @@ const SignInScreen= props => {
                             placeholder="Pseudo"
                             mode={'outlined'}
                             selectionColor={'purple'}
-                            value={textPseudo}
-                            onChangeText={textEnterFirst}
+                            value={textMail}
+                            onChangeText={setTextMail}
                             theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
                             TextColor={'red'}
                             required
@@ -47,13 +57,13 @@ const SignInScreen= props => {
                             mode={'outlined'}
                             selectionColor={'black'}
                             outlineColor={'black'}
-                            onChangeText={textPass => setTextPass(textPass)}
+                            onChangeText={setTextPass}
                             theme={{ colors: { primary: '#000000',underlineColor:'transparent',}}}
                             required
                         />
                     </View>
                     <View>
-                        <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={() => console.log('Pressed') }>
+                        <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={verificationSubmit}>
                             Sign In
                         </Button>
                     </View>
