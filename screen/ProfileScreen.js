@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         marginTop:10,
         marginBottom: 2,
         width: '100%',
-        justifyContent: 'space-evenly'
+        // justifyContent: 'space-evenly'
     },
     btn: {
         width: '50%',

@@ -37,14 +37,7 @@ const SettingScreen = props => {
                 <SafeAreaView style={styles.container}>
                     <View style={styles.viewContainers}>
                         <View style={styles.textContainers}>
-                            <Text>PSEUDO : "pseudo" </Text>
-                        </View>
-                        <View style={styles.textContainers}>
                             <Text>NOTIFICATIONS :</Text>
-                            <Text>button</Text>
-                        </View>
-                        <View style={styles.textContainers}>
-                            <Text>DARK THEME :</Text>
                             <Text>button</Text>
                         </View>
                     </View>
@@ -107,3 +100,9 @@ const styles = StyleSheet.create({
 });
 
 export default SettingScreen;
+
+//Fonctionnalité supplémentaire
+// <View style={styles.textContainers}>
+//     <Text>DARK THEME :</Text>
+//     <Text>button</Text>
+// </View>

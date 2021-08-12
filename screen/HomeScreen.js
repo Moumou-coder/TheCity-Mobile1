@@ -41,13 +41,13 @@ const HomeScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'Catalog of activities',
+        headerTitle: 'Catalog of Activities',
     };
 };
 
 const styles = StyleSheet.create({
     screen: {
-        padding: 20,
+        paddingTop: 15,
         flex: 1,
     },
     firstContainer:{
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
         marginTop:10,
         marginBottom: 2,
         width: '100%',
-        justifyContent: 'space-evenly'
     },
     btn: {
         width: '50%',

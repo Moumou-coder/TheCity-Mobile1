@@ -56,7 +56,7 @@ export const SettingNavigator = () => {
 const AuthStackNavigator = createStackNavigator();
 export const AuthNavigator = () => {
     return(
-        <AuthStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+        <AuthStackNavigator.Navigator headerMode={'none'}>
             <AuthStackNavigator.Screen
                 name={"Register"}
                 component={RegisterScreen}
@@ -69,12 +69,12 @@ export const AuthNavigator = () => {
             />
             <AuthStackNavigator.Screen
                 name={"Profile"}
-                component={ProfileScreen}
+                component={TabNavigator}
                 options={ProfileScreenOptions}
             />
             <AuthStackNavigator.Screen
                 name={"Home"}
-                component={HomeScreen}
+                component={TabNavigator}
                 options={homeScreenOptions}
             />
         </AuthStackNavigator.Navigator>
@@ -103,6 +103,7 @@ export const TabNavigator = () => {
                 name={"Home"}
                 component={ActivityNavigator}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({focused}) => (
                         <View style={{alignItems: 'center', justifyContent:'center', top:2}}>
                             <Ionicons

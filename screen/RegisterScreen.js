@@ -10,8 +10,9 @@ const RegisterScreen = props => {
     const [textEmail, setTextEmail] = useState('');
     const [textPass, setTextPass] = useState('');
 
+    //redireciton without back possibility
     const modeVisitorRedirection = () => {
-        props.navigation.navigate('Home')
+        props.navigation.replace('Home')
     }
     const signInRedirection = () => {
         props.navigation.navigate('SignIn')
