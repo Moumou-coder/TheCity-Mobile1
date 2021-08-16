@@ -18,15 +18,7 @@ const dispatch = useDispatch();
         <SafeAreaView style={styles.screen}>
                 <View style={styles.firstContainer}>
                     <Text style={styles.titleText}>I ❤ Brussels</Text>
-                    <Text style={{fontWeight: "bold", color: 'blue'}}>Weather : 18° </Text>
-                </View>
-                <View style={styles.btnContainer}>
-                    <Button style={styles.btn1}>
-                        <MaterialIcons name="public" size={25} color="black"/>
-                    </Button>
-                    <Button style={styles.btn} uppercase={true}>
-                        <FontAwesome5 name="user-lock" size={20} color="black"/>
-                    </Button>
+                    <Text style={{fontWeight: "bold", color: 'blue', paddingBottom:10}}>Weather : récup info api </Text>
                 </View>
                 <View style={styles.cardContainer}>
                    <ListActivity nav={props}/>
@@ -60,7 +52,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     firstContainer: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom:20,
+        borderBottomWidth: 2,
+        borderBottomColor: '#eae5e5',
+
     },
     titleText: {
         fontSize: 20,

@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         marginLeft : 30,
         borderTopWidth: 1,
         borderTopColor: 'black',
-        width: 300
+        width: 300,
     },
     copy: {
         color : 'grey',

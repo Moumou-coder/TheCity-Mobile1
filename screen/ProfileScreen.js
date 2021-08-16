@@ -15,11 +15,6 @@ const ProfileScreen = props => {
                     <Avatar.Image size={100} source={require('../assets/images/profilAvatar.jpg')} />
                     <Title style={styles.pseudo}>{username} </Title>
                 </View>
-                <View style={styles.btnContainer}>
-                    <Button style={styles.btn} uppercase={true} >
-                        <FontAwesome name="calendar-check-o" size={25} color="black" />
-                    </Button>
-                </View>
                 <View style={styles.cardContainer}>
                     <Card style={styles.card}>
                         <Card.Cover style={styles.imgCover} source={{ uri: 'https://picsum.photos/600' }} />
@@ -46,7 +41,10 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     firstContainer:{
-        alignItems : 'center'
+        alignItems : 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: '#eae5e5',
+        marginBottom:25
     },
     pseudo: {
         color : '#191970'

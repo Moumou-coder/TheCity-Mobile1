@@ -27,7 +27,7 @@ const SignInScreen= props => {
                 // dispatch(putUsername(user.data()))
                 props.navigation.replace('Home')
             })
-            .catch((error) => {alert(error)});
+            .catch((error) => {alert("Form invalid, verify your Mail and Password")});
     }
 
 
