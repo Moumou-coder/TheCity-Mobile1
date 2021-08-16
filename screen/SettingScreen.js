@@ -117,9 +117,3 @@ const styles = StyleSheet.create({
 });
 
 export default SettingScreen;
-
-//Fonctionnalité supplémentaire
-// <View style={styles.textContainers}>
-//     <Text>DARK THEME :</Text>
-//     <Text>button</Text>
-// </View>

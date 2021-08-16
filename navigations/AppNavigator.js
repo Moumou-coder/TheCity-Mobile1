@@ -1,8 +1,9 @@
 import React from "react";
 import { NavigationContainer} from "@react-navigation/native";
-import {ActivityNavigator, AuthNavigator, TabNavigator} from "./TheCityNavigator";
+import {AuthNavigator} from "./TheCityNavigator";
 
 const AppNavigator = props =>  {
+
 
     return(
         <NavigationContainer>

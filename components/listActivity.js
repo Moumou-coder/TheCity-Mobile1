@@ -5,7 +5,6 @@ import {MyCard} from "./MyCard";
 
 export const ListActivity = props => {
     const activityArray = useSelector(state=>state.reducerActivity.activityArray);
-
     const renderActivity =dataActivity => {
         return (
             <MyCard

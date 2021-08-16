@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
-import {auth} from "../config/config";
+import {auth, dbh} from "../config/config";
+import {useDispatch} from "react-redux";
 
 
 
@@ -16,14 +17,17 @@ const SignInScreen= props => {
     const modeVisitorRedirection = () => {
         props.navigation.replace('Home')
     }
+    const dispatch= useDispatch();
     const verificationSubmitLogin = () => {
         auth.signInWithEmailAndPassword(textMail.toString().trim(), textPass.toString().trim())
             .then((userCredential) => {
-                console.log( textMail, textPass)
-                // var user = userCredential.user; utiliser avec redux
-                modeVisitorRedirection();
+                console.log(auth.currentUser.email)
+                dbh.collection("Users").doc(userCredential.email).get().then(doc=>console.log(doc.data()))
+
+                // dispatch(putUsername(user.data()))
+                props.navigation.replace('Home')
             })
-            .catch((error) => {console.log(error)});
+            .catch((error) => {alert(error)});
     }
 
 

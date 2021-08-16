@@ -1,7 +1,14 @@
-import {ADD_ACTIIVTY,UPADATE_ACTIIVTY,DELETE_ACTIIVTY,GET_ALL_ACTIIVTY} from "../actions/activityActions";
+import {
+    ADD_ACTIIVTY,
+    UPADATE_ACTIIVTY,
+    DELETE_ACTIIVTY,
+    GET_ALL_ACTIIVTY,
+    PUT_USERNAME
+} from "../actions/activityActions";
 
 const initialState={
-    activityArray:[]
+    activityArray:[],
+    userName:""
 };
 
 export const activityReducers = (state=initialState,action)=>{
@@ -15,12 +22,14 @@ export const activityReducers = (state=initialState,action)=>{
             return {...state, activityArray: newDeleteArray}
 
         case GET_ALL_ACTIIVTY:
-            return {...state,activityArray: [...action.getALlActivity]}
+            return {...state,activityArray: [...action.getAllActivity]}
 
         case UPADATE_ACTIIVTY:
             let tempoArray=[...state.activityArray.filter(oneActivity=>oneActivity.id!==action.updateIdActivity)]
             tempoArray.unshift(action.updateActivity)
             return {...state,activityArray: tempoArray}
+        case PUT_USERNAME:
+            return{...state,userName: action.userName}
 
         default:
             return state;

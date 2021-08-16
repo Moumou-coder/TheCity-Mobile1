@@ -1,36 +1,52 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
-import { Button } from 'react-native-paper';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
+import {Button} from 'react-native-paper';
 import {FontAwesome, FontAwesome5} from '@expo/vector-icons';
+import {useDispatch} from "react-redux";
+import {deleteActivity} from "../store/actions/activityActions";
+import {dbh} from "../config/config";
 
 const DetailsActivityScreen = props => {
 
-    const superObject=props.route.params;
-    return(
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.screen}>
-                    <View style={styles.imgContainer}>
-                        <Image source={{uri:superObject.image }} style={styles.img} resizeMode={"stretch"}  />
-                    </View>
-                    <View style={styles.descriptionContainer}>
-                        <Text>{superObject.description}</Text>
-                    </View>
-                    <View style={styles.hoursContainer}>
-                        <Text numberOfLines={7}>
-                            {superObject.hours}
-                        </Text>
-                    </View>
-                    <View style={styles.infosContainer}>
-                        <Text>
-                            {superObject.info}
-                        </Text>
-                    </View>
-                    <View style={styles.btnContainer}>
-                        <Button uppercase={true} mode="contained" color={'#ffd700'} onPress={() => console.log('modifier')}> Edit </Button>
-                        <Button uppercase={true} mode="contained" color={'#b22222'} onPress={() => console.log('supprimer')}> Delete </Button>
-                    </View>
+    const dispatch = useDispatch();
+
+    const deleteActivityPrivate = () => {
+        dbh.collection("Activity").where("title", "==", superObject.title)
+            .where("description", "==", superObject.description).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                props.navigation.replace("Home")
+                dispatch(deleteActivity(doc.id))
+            });
+        })
+    }
+    const superObject = props.route.params;
+    return (
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.screen}>
+                <View style={styles.imgContainer}>
+                    <Image source={{uri: superObject.image}} style={styles.img} resizeMode={"stretch"}/>
                 </View>
-            </ScrollView>
+                <View style={styles.descriptionContainer}>
+                    <Text>{superObject.description}</Text>
+                </View>
+                <View style={styles.hoursContainer}>
+                    <Text numberOfLines={7}>
+                        {superObject.hours}
+                    </Text>
+                </View>
+                <View style={styles.infosContainer}>
+                    <Text>
+                        {superObject.info}
+                    </Text>
+                </View>
+                <View style={styles.btnContainer}>
+                    <Button uppercase={true} mode="contained" color={'#ffd700'}
+                            onPress={() => console.log('modifier')}> Edit </Button>
+                    <Button uppercase={true} mode="contained" color={'#b22222'}
+                            onPress={deleteActivityPrivate}> Delete </Button>
+                </View>
+            </View>
+        </ScrollView>
     );
 };
 
@@ -42,7 +58,7 @@ export const screenOptions = nav => {
                 name="calendar-check-o"
                 size={25}
                 color="green"
-                style={{right:10}}
+                style={{right: 10}}
             />
         ),
     };
@@ -51,54 +67,54 @@ export const screenOptions = nav => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        alignItems : 'center',
+        alignItems: 'center',
     },
     imgContainer: {
-        borderColor : 'black',
-        borderWidth : 1,
+        borderColor: 'black',
+        borderWidth: 1,
         width: 300,
-        height : 200,
+        height: 200,
         overflow: 'hidden',
-        borderRadius : 10,
+        borderRadius: 10,
         marginTop: 50
 
     },
     img: {
         width: 300,
-        height : 200,
+        height: 200,
     },
     descriptionContainer: {
-        borderColor : 'black',
-        borderWidth : 1,
+        borderColor: 'black',
+        borderWidth: 1,
         width: 300,
         borderRadius: 10,
-        padding : 5,
+        padding: 5,
         overflow: 'hidden',
         margin: 10
     },
     hoursContainer: {
-        borderColor : 'black',
-        borderWidth : 1,
+        borderColor: 'black',
+        borderWidth: 1,
         width: 300,
         borderRadius: 10,
         paddingTop: 5,
         paddingLeft: 10,
-        margin:10
+        margin: 10
 
     },
     infosContainer: {
-        borderColor : 'black',
-        borderWidth : 1,
+        borderColor: 'black',
+        borderWidth: 1,
         width: 300,
         borderRadius: 10,
-        padding : 5,
+        padding: 5,
         margin: 10
     },
     btnContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        width : '100%',
-        margin : 10
+        width: '100%',
+        margin: 10
     }
 });
 

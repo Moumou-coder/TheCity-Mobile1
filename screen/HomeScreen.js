@@ -1,13 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
-import {Button, Card, Title} from 'react-native-paper';
+import {Button} from 'react-native-paper';
 import {FontAwesome5} from '@expo/vector-icons';
 import {MaterialIcons} from '@expo/vector-icons';
 import {ListActivity} from "../components/listActivity";
+import {useDispatch} from "react-redux";
+import {getAllActivity} from "../store/actions/activityActions";
 
 
 const HomeScreen = props => {
-
+const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getAllActivity())
+    })
 
     return (
         <SafeAreaView style={styles.screen}>

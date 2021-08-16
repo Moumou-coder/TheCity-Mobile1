@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import {Avatar, Button, Card, Title} from 'react-native-paper';
 import { FontAwesome } from '@expo/vector-icons';
+import {useSelector} from "react-redux";
 
 const ProfileScreen = props => {
 
+    const username=useSelector(state=>state.reducerActivity.userName);
 
     return(
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.screen}>
                 <View style={styles.firstContainer}>
                     <Avatar.Image size={100} source={require('../assets/images/profilAvatar.jpg')} />
-                    <Title style={styles.pseudo}> Moumou </Title>
+                    <Title style={styles.pseudo}>{username} </Title>
                 </View>
                 <View style={styles.btnContainer}>
                     <Button style={styles.btn} uppercase={true} >
