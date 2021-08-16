@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Alert, ScrollView } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, Switch } from 'react-native-paper';
+import {auth} from "../config/config";
 
 const SettingScreen = props => {
 
@@ -25,31 +26,47 @@ const SettingScreen = props => {
             [
                 {
                     text: "Cancel",
-                    onPress: () => console.log("Cancel Pressed"),
+                    onPress: () => console.log('non'),
                     style: "cancel"
                 },
-                { text: "YES", onPress: () => console.log("OK Pressed") }
+                { text: "YES", onPress: () => signOut()}
             ]
         );
 
+    const [isSwitchOn, setIsSwitchOn] = React.useState(false);
+    const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+
+    const logOutRedirection = () => {
+        props.navigation.replace('SignIn')
+    }
+
+    const signOut = () => {
+        auth.signOut()
+            .then(() => {
+                logOutRedirection();
+            }).catch((error) => {
+            console.log(error)
+        });
+    }
+
     return(
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <SafeAreaView style={styles.container}>
-                    <View style={styles.viewContainers}>
-                        <View style={styles.textContainers}>
-                            <Text>NOTIFICATIONS :</Text>
-                            <Text>button</Text>
-                        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <SafeAreaView style={styles.container}>
+                <View style={styles.viewContainers}>
+                    <View style={styles.textContainers}>
+                        <Text>NOTIFICATIONS :</Text>
+                        <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
                     </View>
-                    <View style={styles.btnContainer}>
-                        <Button mode={'contained'} onPress={alertLogOutButton} color={'#ffa500'}> Log Out </Button>
-                        <Button mode={'contained'} onPress={alertDeleteButton } color={'#ff0000'}> Delete Account </Button>
-                    </View>
-                    <View style={styles.copyContainer}>
-                        <Text style={styles.copy}> TheCity © 2021 version 0.1</Text>
-                    </View>
-                </SafeAreaView>
-            </ScrollView>
+                </View>
+                <View style={styles.btnContainer}>
+                    <Button mode={'contained'} onPress={alertLogOutButton} color={'#ffa500'}> Log Out </Button>
+                    <Button mode={'contained'} onPress={alertDeleteButton } color={'#ff0000'}> Delete Account </Button>
+                </View>
+                <View style={styles.copyContainer}>
+                    <Text style={styles.copy}> TheCity © 2021 version 0.1</Text>
+                </View>
+            </SafeAreaView>
+        </ScrollView>
     );
 };
 

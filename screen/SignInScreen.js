@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { TextInput, Button} from 'react-native-paper';
-import {dbh} from "../config/config";
-import firebase from "firebase";
 import {auth} from "../config/config";
 
 
@@ -16,13 +14,12 @@ const SignInScreen= props => {
         props.navigation.navigate('Register')
     }
     const modeVisitorRedirection = () => {
-        props.navigation.navigate('Home')
+        props.navigation.replace('Home')
     }
-    const verificationSubmit = () => {
+    const verificationSubmitLogin = () => {
         auth.signInWithEmailAndPassword(textMail.toString().trim(), textPass.toString().trim())
             .then((userCredential) => {
                 console.log( textMail, textPass)
-
                 // var user = userCredential.user; utiliser avec redux
                 modeVisitorRedirection();
             })
@@ -63,7 +60,7 @@ const SignInScreen= props => {
                         />
                     </View>
                     <View>
-                        <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={verificationSubmit}>
+                        <Button  uppercase={false} mode="contained" color={'#87cefa'}  onPress={verificationSubmitLogin}>
                             Sign In
                         </Button>
                     </View>

@@ -119,7 +119,7 @@ const EditActivityScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'Editing or Adding Activity',
+        headerTitle: 'Add Activity',
     };
 };
 

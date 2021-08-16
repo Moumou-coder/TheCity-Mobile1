@@ -1,16 +1,11 @@
 "The city" un gestionnaire d'activités dans la ville
 
-!!! quand une activité est faite et est déplacé dans 'done', il faut l'enlever des favoris !!! 
-
 weather --> api online
 
 Foncionnalités supplémentaies :
 * Ajouter l'option langue
 * Filtres 
-* page loading lors du lancement de l'app avec le logo et du texte commme : gestionnaire d'activités dans Bruxelles, idées pour plus de fun, 
 
 
 
-- elevationd dans le stylesheet, c'est pour android ! (shadowOpacity = ios)
-
-si problème lancement application : node - reactnative -libraries - core - timer - max : 60*1000
+- elevation dans le stylesheet, c'est pour android ! (shadowOpacity = ios)

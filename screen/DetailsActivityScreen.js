@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
 import { Button } from 'react-native-paper';
+import {FontAwesome, FontAwesome5} from '@expo/vector-icons';
 
 const DetailsActivityScreen = props => {
 
@@ -40,7 +41,15 @@ const DetailsActivityScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'My Activity',
+        headerTitle: 'Atomium',
+        headerRight: () => (
+            <FontAwesome
+                name="calendar-check-o"
+                size={25}
+                color="green"
+                style={{right:10}}
+            />
+        ),
     };
 };
 

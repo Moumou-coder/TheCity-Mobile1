@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, KeyboardAvoidingView, ScrollView,} from 'react-native';
-import {Button, TextInput} from "react-native-paper";
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, KeyboardAvoidingView, ScrollView, Alert} from 'react-native';
+import {Button, TextInput, Snackbar} from "react-native-paper";
 import {dbh} from "../config/config";
 import {auth} from "../config/config";
 
@@ -18,18 +18,39 @@ const RegisterScreen = props => {
         props.navigation.navigate('SignIn')
     }
 
-    const submitForm= () => {
-        auth.createUserWithEmailAndPassword(textEmail,textPass)
+    const submitFormRegister = () => {
+        auth.createUserWithEmailAndPassword(textEmail, textPass)
             .then((userCredential) => {
+                onToggleSnackBar()
                 dbh.collection("Users").doc(userCredential.user.email).set({pseudo: textPseudo})
-                signInRedirection();
-            }).catch((error)=>{console.log("cette email existe déjà")})
+                setTimeout(() => {
+                    signInRedirection()
+                }, 3500);
+
+            }).catch((error) => {
+            Alert.alert(
+                "Message Error",
+                "This mail exist already ! Please try another ",
+                [
+                    {
+                        text: "OK",
+                    },
+                ],
+                {
+                    cancelable: true
+                }
+            );
+        })
 
 
     }
 
+    const [visibleBar, setVisibleBar] = React.useState(false);
+    const onToggleSnackBar = () => setVisibleBar(!visibleBar);
+    const onDismissSnackBar = () => setVisibleBar(false);
+
     return (
-        <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={50} >
+        <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={50}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.screen}>
                     <Text style={styles.titleText}> Register Your Profil </Text>
@@ -41,7 +62,7 @@ const RegisterScreen = props => {
                             mode={'outlined'}
                             selectionColor={'purple'}
                             onChangeText={textPseudo => setTextPseudo(textPseudo)}
-                            theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
+                            theme={{colors: {primary: '#000000', underlineColor: 'transparent'}}}
                             TextColor={'red'}
                         />
                         <TextInput
@@ -51,7 +72,7 @@ const RegisterScreen = props => {
                             mode={'outlined'}
                             selectionColor={'purple'}
                             onChangeText={textEmail => setTextEmail(textEmail)}
-                            theme={{ colors: { primary: '#000000',underlineColor:'transparent' }}}
+                            theme={{colors: {primary: '#000000', underlineColor: 'transparent'}}}
                             TextColor={'red'}
                         />
                         <TextInput
@@ -63,21 +84,32 @@ const RegisterScreen = props => {
                             selectionColor={'black'}
                             outlineColor={'black'}
                             onChangeText={textPass => setTextPass(textPass)}
-                            theme={{ colors: { primary: '#000000',underlineColor:'transparent',}}}
+                            theme={{colors: {primary: '#000000', underlineColor: 'transparent',}}}
                         />
                     </View>
                     <View>
-                        <Button  uppercase={false} mode="contained" color={'#ffd700'}  onPress={submitForm}>
+                        <Button uppercase={false} mode="contained" color={'#ffd700'} onPress={submitFormRegister}>
                             Register
                         </Button>
                     </View>
                     <View style={styles.linkContainer}>
-                        <Button  theme={{ colors: { primary: '#0000cd'}}} onPress={signInRedirection} >
+                        <Button theme={{colors: {primary: '#0000cd'}}} onPress={signInRedirection}>
                             Sign In
                         </Button>
-                        <Button theme={{ colors: { primary: '#b22222'}}} onPress={modeVisitorRedirection} >
+                        <Button theme={{colors: {primary: '#b22222'}}} onPress={modeVisitorRedirection}>
                             Visitor Mode
                         </Button>
+                    </View>
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 70}}>
+                        <Snackbar
+                            visible={visibleBar}
+                            onDismiss={onDismissSnackBar}
+                            duration={3000}
+                            action={{
+                                label: 'Undo',
+                            }}>
+                            Hey ! You have been registered .
+                        </Snackbar>
                     </View>
                 </View>
             </ScrollView>
@@ -95,7 +127,7 @@ const styles = StyleSheet.create({
     screen: {
         padding: 20,
         alignItems: 'center',
-        justifyContent:'center',
+        justifyContent: 'center',
         marginTop: 50
     },
     titleText: {
@@ -103,21 +135,21 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         fontWeight: 'bold'
     },
-    inputContainer :{
-        padding : 2,
-        marginBottom :20,
-        marginTop : 50
+    inputContainer: {
+        padding: 2,
+        marginBottom: 20,
+        marginTop: 33
     },
     input: {
         width: 200,
         height: 50,
         textAlign: 'left',
-        margin:18,
+        margin: 15,
     },
     linkContainer: {
         marginTop: 30,
         alignItems: 'center'
-    }
+    },
 });
 
 export default RegisterScreen;

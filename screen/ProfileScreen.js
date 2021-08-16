@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import {Avatar, Button, Card, Title} from 'react-native-paper';
+import { FontAwesome } from '@expo/vector-icons';
 
 const ProfileScreen = props => {
+
 
     return(
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.screen}>
                 <View style={styles.firstContainer}>
                     <Avatar.Image size={100} source={require('../assets/images/profilAvatar.jpg')} />
-                    <Title style={styles.pseudo}> My name ! </Title>
+                    <Title style={styles.pseudo}> Moumou </Title>
                 </View>
                 <View style={styles.btnContainer}>
-                    <Button style={styles.btn} uppercase={true} mode="contained" color={'blue'} >
-                        Public
-                    </Button>
-                    <Button  style={styles.btn}  uppercase={true} mode="contained" color={'green'} >
-                        Private
+                    <Button style={styles.btn} uppercase={true} >
+                        <FontAwesome name="calendar-check-o" size={25} color="black" />
                     </Button>
                 </View>
                 <View style={styles.cardContainer}>
@@ -53,15 +52,19 @@ const styles = StyleSheet.create({
     btnContainer: {
         flexDirection: 'row',
         marginTop:10,
-        marginBottom: 2,
+        marginBottom: 10,
         width: '100%',
-        // justifyContent: 'space-evenly'
+        borderTopWidth:1,
+        borderTopColor:'#eae5e5',
+        justifyContent:'center'
     },
     btn: {
-        width: '50%',
-        height : 30,
+        width: '98%',
+        height : 40,
         justifyContent :'center',
-        borderRadius :0
+        borderRadius :0,
+        borderBottomWidth:2,
+        borderBottomColor:'black',
     },
     cardContainer :{
         flexDirection: 'row',

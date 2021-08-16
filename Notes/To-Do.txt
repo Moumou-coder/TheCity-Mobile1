@@ -1,4 +1,3 @@
-regarder la vidéo 112 pour le design fonts 
 
 1) Screen Connexion :
     require input
@@ -14,27 +13,22 @@ regarder la vidéo 112 pour le design fonts
 
 3) redimensions (gsm / tablette ) avec redimensions react native
 
-4) react navigation : 115 --> very important ou plutot voir directement sur react navigation 5x
-
-5) Installer useScreen + l'ajouter sur app 126.
-
-6) attention pour le bouton favoris : 132.
-
-7) Barre de navigation
-
 11) UI/UX : 
 rajouter un bouton back sur le côté gauche 
 Sign In et Register --> OK
 clavier ne va pas sur le input 
 ajouter des errors messages real time pour les user input avec alert après submit 
-mettre des icones utiles pour aider les utilisateurs 
-ajouter une barre de navigations bottom pour switch entre les écrans ( ex: insta )
+mettre des icones utiles pour aider les utilisateurs --> OK
+ajouter une barre de navigations bottom pour switch entre les écrans --> OK
 
 12) Navigation :
---> passer en paramètre un id pour pour voir l'activitydetailsscreen
---> authentification + navigation
+--> passer en paramètre un id pour pour voir l'activitydetailsscreen 
+--> authentification + navigation (firebase)
 
 13) créer le componenent : input et card
 
-14) rajouter dans register après le then (2ieme) un snackbar pour prévenir user
+14) rajouter dans register après le then (2ieme) un snackbar pour prévenir user --> Ok
 
+15) changer le design des boutons du homescreen et profilescreen (borderBottom active )
+
+16)api google maps ou / et api weather 
