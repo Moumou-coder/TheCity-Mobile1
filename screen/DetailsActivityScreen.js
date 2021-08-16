@@ -5,29 +5,24 @@ import {FontAwesome, FontAwesome5} from '@expo/vector-icons';
 
 const DetailsActivityScreen = props => {
 
+    const superObject=props.route.params;
     return(
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.screen}>
                     <View style={styles.imgContainer}>
-                        <Image source={require('../assets/images/Atomium.jpg')} style={styles.img} resizeMode={"stretch"}  />
+                        <Image source={{uri:superObject.image }} style={styles.img} resizeMode={"stretch"}  />
                     </View>
                     <View style={styles.descriptionContainer}>
-                        <Text>Ceci est le centre de Bruxelles, un des monuments les plus famous de notre belle petite ville qui la capitale de l'europe </Text>
+                        <Text>{superObject.description}</Text>
                     </View>
                     <View style={styles.hoursContainer}>
                         <Text numberOfLines={7}>
-                            lundi: 10h-20h {"\n"}
-                            mardi : 10h-20h {"\n"}
-                            mercredi : 10h-20h {"\n"}
-                            jeudi : 10h-20h {"\n"}
-                            Vendredi : Fermé {"\n"}
-                            Samedi : 10h-22h {"\n"}
-                            Dimanche : Fermé {"\n"}
+                            {superObject.hours}
                         </Text>
                     </View>
                     <View style={styles.infosContainer}>
                         <Text>
-                            Lieu payant
+                            {superObject.info}
                         </Text>
                     </View>
                     <View style={styles.btnContainer}>
@@ -41,7 +36,7 @@ const DetailsActivityScreen = props => {
 
 export const screenOptions = nav => {
     return {
-        headerTitle: 'Atomium',
+        headerTitle: nav.route.params.title,
         headerRight: () => (
             <FontAwesome
                 name="calendar-check-o"

@@ -2,14 +2,28 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Image, ScrollView, Platform, KeyboardAvoidingView} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
 import * as ImagePicker from 'expo-image-picker';
-
+import {useDispatch} from "react-redux";
+import {addActivity} from "../store/actions/activityActions";
+import PushNotification from "react-native-push-notification"
+import * as Notifications from 'expo-notifications';
 const EditActivityScreen = props => {
 
-    const [ediTitle, setEditTitle] = useState('');
-    const titleEnter = (textTitle) => {
-        setEditTitle(textTitle)
-    }
 
+    const dispatch=useDispatch()
+    // PushNotification.configure({
+    //     onNotification:()=>{console.log("Notification recu")}
+    // })
+
+    // async function schedulePushNotification() {
+    //     await Notifications.scheduleNotificationAsync({
+    //         content: {
+    //             title: "You've got mail! 📬",
+    //             body: 'Here is the notification body',
+    //             data: { data: 'goes here' },
+    //         },
+    //         trigger: { seconds: 2 },
+    //     });
+    // }
     useEffect(() => {
         (async () => {
             if (Platform.OS !== 'web') {
@@ -37,6 +51,11 @@ const EditActivityScreen = props => {
         }
     };
 
+    const [editTitle, setEditTitle] = useState('');
+    const titleEnter = (textTitle) => {
+        setEditTitle(textTitle)
+    }
+
     const [editDescription, setEditDescription] = useState('');
     const descriptionEnter = (textDInput) => {
         setEditDescription(textDInput)
@@ -50,6 +69,18 @@ const EditActivityScreen = props => {
         setEditInfos(textIInput)
     }
 
+    const createActivity=async () => {
+        const activityObject = {
+            title: editTitle,
+            description: editDescription,
+            imageUri: image,
+            hours: editHours,
+            info: editInfos
+        }
+        dispatch(addActivity(activityObject))
+        props.navigation.navigate("Home")
+    }
+
     return (
         <KeyboardAvoidingView style={{ flex: 1 }}  behavior={"height"} keyboardVerticalOffset={50} >
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -60,7 +91,7 @@ const EditActivityScreen = props => {
                             placeholder="Title of the activity"
                             mode={'outlined'}
                             selectionColor={'black'}
-                            value={ediTitle}
+                            value={editTitle}
                             onChangeText={titleEnter}
                             theme={{colors: {primary: '#00008b', underlineColor: 'transparent'}}}
                         />
@@ -107,9 +138,9 @@ const EditActivityScreen = props => {
                     </View>
                     <View style={styles.btnContainer}>
                         <Button uppercase={false} mode="contained" color={'#ffd700'}
-                                onPress={() => console.log('modifier')}> Save </Button>
-                        <Button uppercase={false} mode="contained" color={'#b22222'}
-                                onPress={() => console.log('supprimer')}> Cancel </Button>
+                                onPress={createActivity}> Save </Button>
+                        {/*<Button uppercase={false} mode="contained" color={'#b22222'}*/}
+                        {/*        onPress={() => console.log('supprimer')}> Cancel </Button>*/}
                     </View>
                 </View>
             </ScrollView>
@@ -158,7 +189,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         width : '100%',
-        marginBottom : 10,
+        marginBottom : 70,
         marginTop : 10
     }
 });

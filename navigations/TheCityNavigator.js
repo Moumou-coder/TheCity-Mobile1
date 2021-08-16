@@ -2,24 +2,24 @@ import React from "react";
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen, {screenOptions as homeScreenOptions} from "../screen/HomeScreen";
 import SettingScreen, {screenOptions as settingsScreenOptions} from "../screen/SettingScreen";
-import DetailsActivityScreen, {screenOptions as detailsActivityScreenOptions } from "../screen/DetailsActivityScreen";
+import DetailsActivityScreen, {screenOptions as detailsActivityScreenOptions} from "../screen/DetailsActivityScreen";
 import EditActivityScreen, {screenOptions as editActivityScreenOptions} from "../screen/EditActivityScreen";
 import SignInScreen, {screenOptions as SingInScreenOptions} from "../screen/SignInScreen";
-import RegisterScreen, {screenOptions as RegisterScreenOptions}from "../screen/RegisterScreen";
+import RegisterScreen, {screenOptions as RegisterScreenOptions} from "../screen/RegisterScreen";
 import ProfileScreen, {screenOptions as ProfileScreenOptions} from "../screen/ProfileScreen";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {View, Text} from "react-native";
-import {Ionicons, AntDesign } from "@expo/vector-icons";
+import {Ionicons, AntDesign} from "@expo/vector-icons";
 
 
 const defaultNavigationOptions = {
     headerStyle: {height: 65},
-    headerTitleStyle: { alignSelf: 'center'},
+    headerTitleStyle: {alignSelf: 'center'},
 }
 
 const ActivityStackNavigator = createStackNavigator();
 export const ActivityNavigator = () => {
-    return(
+    return (
         <ActivityStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
             <ActivityStackNavigator.Screen
                 name={"Home"}
@@ -42,7 +42,7 @@ export const ActivityNavigator = () => {
 
 const SettingStackNavigator = createStackNavigator();
 export const SettingNavigator = () => {
-    return(
+    return (
         <SettingStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
             <SettingStackNavigator.Screen
                 name={"Settings"}
@@ -55,7 +55,7 @@ export const SettingNavigator = () => {
 
 const AuthStackNavigator = createStackNavigator();
 export const AuthNavigator = () => {
-    return(
+    return (
         <AuthStackNavigator.Navigator headerMode={'none'}>
             <AuthStackNavigator.Screen
                 name={"Register"}
@@ -84,18 +84,18 @@ export const AuthNavigator = () => {
 
 const TabBottomNavigator = createBottomTabNavigator();
 export const TabNavigator = () => {
-    return(
+    return (
         <TabBottomNavigator.Navigator
             tabBarOptions={{
-                showLabel:false,
-                style:{
+                showLabel: false,
+                style: {
                     position: 'absolute',
-                    backgroundColor:'#f8f8ff',
-                    elevation:0,
-                    height:50,
-                    paddingTop:8,
-                    paddingBottom:8,
-                    borderRadius:10
+                    backgroundColor: '#f8f8ff',
+                    elevation: 0,
+                    height: 50,
+                    paddingTop: 8,
+                    paddingBottom: 8,
+                    borderRadius: 10
                 }
             }}
         >
@@ -105,14 +105,14 @@ export const TabNavigator = () => {
                 options={{
                     headerShown: false,
                     tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent:'center', top:2}}>
+                        <View style={{alignItems: 'center', justifyContent: 'center', top: 2}}>
                             <Ionicons
                                 name="home"
                                 size={20}
                                 color={focused ? "#dc143c" : "black"}
                             />
                             <Text
-                                style={{color:focused ? "#dc143c" : "black", fontSize:11}} >
+                                style={{color: focused ? "#dc143c" : "black", fontSize: 11}}>
                                 Home
                             </Text>
                         </View>
@@ -124,14 +124,14 @@ export const TabNavigator = () => {
                 component={ProfileScreen}
                 options={{
                     tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent:'center', top:2}}>
+                        <View style={{alignItems: 'center', justifyContent: 'center', top: 2}}>
                             <AntDesign
                                 name="profile"
                                 size={20}
                                 color={focused ? "#dc143c" : "black"}
                             />
                             <Text
-                                style={{color:focused ? "#dc143c" : "black", fontSize:11}} >
+                                style={{color: focused ? "#dc143c" : "black", fontSize: 11}}>
                                 Profile
                             </Text>
                         </View>
@@ -143,14 +143,14 @@ export const TabNavigator = () => {
                 component={SettingNavigator}
                 options={{
                     tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent:'center', top:2}}>
+                        <View style={{alignItems: 'center', justifyContent: 'center', top: 2}}>
                             <Ionicons
                                 name="settings"
                                 size={20}
                                 color={focused ? "#dc143c" : "black"}
                             />
                             <Text
-                                style={{color:focused ? "#dc143c" : "black", fontSize:11}} >
+                                style={{color: focused ? "#dc143c" : "black", fontSize: 11}}>
                                 Settings
                             </Text>
                         </View>
@@ -162,7 +162,7 @@ export const TabNavigator = () => {
 }
 
 
-const TheCityNavigator = props =>  {
+const TheCityNavigator = props => {
 };
 
 export default TheCityNavigator;
